@@ -15,8 +15,18 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "gatsby": "^4.9.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "gatsby": "^4.9.1",
+    "gatsby-plugin-react-redux-persist": "^1.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
+    "redux": "^4.1.2",
+    "redux-persist": "^6.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "gatsby-plugin-postcss": "^5.9.0",
+    "postcss": "^8.4.7",
+    "tailwindcss": "^3.0.23"
   }
 }
