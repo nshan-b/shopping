@@ -1,0 +1,30 @@
+{
+    "title": "category_data",
+    "content" : [
+        {
+            "img_text" : "classy pairs",
+            "img_category": "shoes",
+            "img_path" : "../images/shoes.jpg"
+        },
+        {
+            "img_text" : "rad gear",
+            "img_category": "electronics",
+            "img_path" : "../images/electronics.jpg"
+        },
+        {
+            "img_text" : "dressed to impress",
+            "img_category": "clothes",
+            "img_path" : "../images/clothes.jpg"
+        },
+        {
+            "img_text" : "get your jam on",
+            "img_category": "music",
+            "img_path" : "../images/music.jpg"
+        },
+        {
+            "img_text" : "imagine & explore",
+            "img_category": "books",
+            "img_path" : "../images/books.jpg"
+        }
+    ]
+}

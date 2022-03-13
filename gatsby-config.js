@@ -25,6 +25,24 @@ module.exports = {
               // [optional] - name of key on `window` where serialized state will be stored, default:
               windowKey: '__PRELOADED_STATE__',
             },
-        }
+        },
+        "gatsby-transformer-json",
+        {
+          resolve: 'gatsby-source-filesystem',
+          options: {
+            name: 'data',
+            path: `${__dirname}/src/content`
+          }
+        },
+        {
+          resolve: 'gatsby-source-filesystem',
+          options: {
+            name: 'images',
+            path: `${__dirname}/src/images`
+          }
+        },
+        `gatsby-plugin-image`,
+        `gatsby-plugin-sharp`,
+        `gatsby-transformer-sharp`,
     ]
 }

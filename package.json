@@ -15,8 +15,15 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@fontsource/open-sans": "^4.5.5",
+    "@react-icons/all-files": "^4.1.0",
     "gatsby": "^4.9.1",
+    "gatsby-plugin-image": "^2.9.1",
     "gatsby-plugin-react-redux-persist": "^1.1.0",
+    "gatsby-plugin-sharp": "^4.9.1",
+    "gatsby-source-filesystem": "^4.9.1",
+    "gatsby-transformer-json": "^4.9.0",
+    "gatsby-transformer-sharp": "^4.9.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",

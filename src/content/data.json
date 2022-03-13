@@ -1,0 +1,23 @@
+{
+    "title": "Temp data used for ++shopping example",
+    "content" : [
+        {
+            "img_category" : "shoes",
+            "img_path" : "../images/shoes.jpg",
+            "uid": 25,
+            "name": "sneakers25"
+        },
+        {
+            "img_category" : "shoes",
+            "img_path" : "../images/shoes.jpg",
+            "uid" : 26,
+            "name": "sneakers26"
+        },
+        {
+            "img_category" : "shoes",
+            "img_path" : "../images/shoes.jpg",
+            "uid" : 27,
+            "name": "sneakers27"
+        }
+    ]
+}
