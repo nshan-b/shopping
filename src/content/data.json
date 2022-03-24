@@ -1,23 +1,82 @@
 {
-    "title": "Temp data used for ++shopping example",
+    "title": "all_data",
     "content" : [
         {
             "img_category" : "shoes",
             "img_path" : "../images/shoes.jpg",
             "uid": 25,
-            "name": "sneakers25"
+            "name": "Sneakers 25",
+            "price": 19.99
         },
         {
             "img_category" : "shoes",
             "img_path" : "../images/shoes.jpg",
             "uid" : 26,
-            "name": "sneakers26"
+            "name": "Sneakers 26",
+            "price": 22.99
         },
         {
             "img_category" : "shoes",
             "img_path" : "../images/shoes.jpg",
             "uid" : 27,
-            "name": "sneakers27"
+            "name": "Sneakers 27",
+            "price": 32.99
+        },
+        {
+            "img_category" : "electronics",
+            "img_path" : "../images/electronics.jpg",
+            "uid" : 28,
+            "name": "Electronics 0",
+            "price": 11.99
+        },
+        {
+            "img_category" : "electronics",
+            "img_path" : "../images/electronics.jpg",
+            "uid" : 29,
+            "name": "Electronics 1",
+            "price": 15.99
+        },
+        {
+            "img_category" : "electronics",
+            "img_path" : "../images/electronics.jpg",
+            "uid" : 30,
+            "name": "Electronics 2",
+            "price": 9.99
+        },
+        {
+            "img_category" : "books",
+            "img_path" : "../images/books.jpg",
+            "uid" : 31,
+            "name": "Books Part 1",
+            "price": 19.99
+        },
+        {
+            "img_category" : "books",
+            "img_path" : "../images/books.jpg",
+            "uid" : 32,
+            "name": "Books Part 2",
+            "price": 9.99
+        },
+        {
+            "img_category" : "clothes",
+            "img_path" : "../images/clothes.jpg",
+            "uid" : 33,
+            "name": "Clothes 0",
+            "price": 9.99
+        },
+        {
+            "img_category" : "clothes",
+            "img_path" : "../images/clothes.jpg",
+            "uid" : 34,
+            "name": "Clothes 1",
+            "price": 9.99
+        },
+        {
+            "img_category" : "music",
+            "img_path" : "../images/music.jpg",
+            "uid" : 35,
+            "name": "Super Awesome Album 1",
+            "price": 19.99
         }
     ]
 }

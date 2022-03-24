@@ -30,6 +30,8 @@ const IndexPage = (props) => {
       <Navbar  />
       {/* <div>Data: {counterData}</div> */}
       <button onClick={() => { dispatch(increment(1)) }}>Increment</button>
+      <button onClick={() => { dispatch(decrement(1)) }}>Decrement</button>
+      <button onClick={() => { dispatch(reset()) }}>Reset</button>
 
 
       <h1 className="text-3xl font-bold underline text-red-200">
@@ -61,7 +63,7 @@ const IndexPage = (props) => {
         }
         render={data => (
           <>
-            <ul className="flex flex-row flex-wrap">
+            <ul className="flex flex-row flex-wrap items-center justify-center ">
               {getCategories(data)}
             </ul>
           </>
@@ -69,7 +71,7 @@ const IndexPage = (props) => {
 
       />
 
-      <CategoryCard data={shoes} text={"pairs to rule them all"}  />
+      {/* <CategoryCard data={shoes} text={"pairs to rule them all"}  /> */}
 
       
      
@@ -82,7 +84,7 @@ const getCategories = (data) => {
   // data.allContentJson.nodes[0].content
   console.log('data', data.allContentJson.nodes[0])
   data.allContentJson.nodes[0].content.forEach(item =>
-    cats.push(<CategoryCard data={item.img_path.childImageSharp.gatsbyImageData} text={item.img_text} />)
+    cats.push(<CategoryCard data={item.img_path.childImageSharp.gatsbyImageData} text={item.img_text} category={item.img_category} />)
   )
   return cats;
   // data.allContentJson

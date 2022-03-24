@@ -3,6 +3,7 @@ import { persistStore, persistReducer, persistCombineReducers } from 'redux-pers
 import storage from 'redux-persist/lib/storage';
 import counterReducer from '../reducers/counter-reducer';
 import reducer from '../reducers'
+import cartReducer from '../reducers/cart-reducer';
 
 const persistConfig = {
     key: 'root',
@@ -10,11 +11,13 @@ const persistConfig = {
 }
 
 const initialState = {
-    counterData: 0
+    counterData: 0,
+    cartData: [],
 }
 
 const rootReducer = {
-    counterData: counterReducer
+    counterData: counterReducer,
+    cartData: cartReducer,
 }
 
 // const persistedReducer = persistReducer(persistConfig, rootReducer);
