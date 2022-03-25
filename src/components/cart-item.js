@@ -3,6 +3,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 import { useDispatch } from "react-redux";
 import { addItem, removeItem, cartReset, setCount } from "../actions/cart-actions";
+import { toast } from "react-toastify";
 
 
 
@@ -27,7 +28,7 @@ const CartItem = ({data, text, price, uid, category, count}) => {
         >
             <GatsbyImage className="opacity-50 w-32 h-32 rounded-full p-4 m-4" image={data} alt={text} />
             <div className="mr-10">
-                <p className="text-gray-900 leading-none font-bold text-xl mx-2">{text}</p>
+                <p className="text-gray-900 leading-none font-bold text-xl mx-2 w-32">{text}</p>
                 <p className="text-gray-600 leading-none text-sm m-2">${price}</p>
                 {/* <p className="text-gray-600 leading-none text-sm m-2">Category: {count}</p> */}
             </div>
@@ -54,6 +55,10 @@ const CartItem = ({data, text, price, uid, category, count}) => {
                         uid: uid,
                         quantity: quantity
                     }));
+                    toast.success(`Removing ${quantity} of ${text}`, {
+                        position: toast.POSITION.BOTTOM_CENTER,
+                        hideProgressBar: true,
+                    });
                 }}
                 className="ml-10 font-light hover:font-base hover:cursor-pointer text-purple-500 hover:text-purple-600"
             >

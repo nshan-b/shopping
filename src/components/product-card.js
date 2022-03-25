@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { useDispatch } from "react-redux";
 import { addItem, removeItem, cartReset } from "../actions/cart-actions";
+import { toast } from "react-toastify";
 
 const ProductCard = ({data, text, price, uid, category}) => {
     const [quantity, setQuantity] = useState(1);
@@ -44,6 +45,13 @@ const ProductCard = ({data, text, price, uid, category}) => {
                             name: text,
                             category: category,
                         }));
+
+                        toast.success(`Adding ${quantity} of ${text}`, {
+                            position: toast.POSITION.BOTTOM_CENTER,
+                            hideProgressBar: true,
+                        });
+
+
                     }}
                     className="h-10 rounded-sm bg-green-500 hover:bg-green-600 self-end"
                 >

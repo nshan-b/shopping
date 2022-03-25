@@ -3,6 +3,8 @@ import { useDispatch, useSelector, connect } from "react-redux";
 import Navbar from "../components/navbar";
 import { StaticQuery, graphql } from "gatsby";
 import CartItem from "../components/cart-item";
+import { toast } from "react-toastify";
+import { cartReset } from "../actions/cart-actions";
 
 const CartPage = (props) => {
     const dispatch = useDispatch();
@@ -40,7 +42,11 @@ const CartPage = (props) => {
                 </div>
 
 
-                <div className="flex flex-col p-8 bg-slate-100 shadow-md border border-zinc-200 rounded-sm w-1/3 justify-center mr-8">
+                <div className="flex flex-col p-8 bg-slate-100 shadow-md border border-zinc-200 rounded-sm w-1/3 justify-center mr-8"
+                    style={{
+                        maxHeight: "500px"
+                    }}
+                >
                     <h2 className=" mx-2 mb-4 font-semibold text-xl">Order summary</h2>
                     <div className="flex flex-row border-b border-slate-200 justify-between">
                         <p className="text-base text-gray-600 m-2">Subtotal</p>
@@ -62,7 +68,12 @@ const CartPage = (props) => {
                         <button 
                             className="w-32 p-3 h-auto hover:bg-blue-600 bg-blue-500 text-white text-base rounded-sm"
                             onClick={(e) => {
-
+                                console.log('heya')
+                                dispatch(cartReset());
+                                toast.success(`Order complete!`, {
+                                    position: toast.POSITION.BOTTOM_CENTER,
+                                    hideProgressBar: true,
+                                });
                             }}
                         >
                             Checkout
