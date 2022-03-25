@@ -2,6 +2,7 @@ import * as React from "react";
 // import { store } from '../store/store';
 import { useSelector } from "react-redux";
 import {increment, decrement, reset} from '../actions/counter-actions';
+import { cartReset } from "../actions/cart-actions";
 import { connect, useDispatch } from "react-redux";
 import Navbar from "../components/navbar";
 
@@ -10,15 +11,9 @@ import {StaticQuery, graphql} from "gatsby";
 
 import CategoryCard from "../components/category-card";
 import shoes from '../images/shoes.jpg'
-// data
 
-
-
-// markup
 const IndexPage = (props) => {
   const dispatch = useDispatch()
-  console.log('props: ', props)
-  // console.log('store: ', store)
   
   console.log('increment: ', increment)
   const counterData = useSelector(state => state.counterData);
@@ -31,7 +26,7 @@ const IndexPage = (props) => {
       {/* <div>Data: {counterData}</div> */}
       <button onClick={() => { dispatch(increment(1)) }}>Increment</button>
       <button onClick={() => { dispatch(decrement(1)) }}>Decrement</button>
-      <button onClick={() => { dispatch(reset()) }}>Reset</button>
+      <button onClick={() => { dispatch(cartReset()) }}>Reset</button>
 
 
       <h1 className="text-3xl font-bold underline text-red-200">

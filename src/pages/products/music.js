@@ -1,14 +1,13 @@
 import * as React from "react";
 import { useSelector } from "react-redux";
 import {increment, decrement, reset} from '../../actions/counter-actions';
-import { connect, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import Navbar from "../../components/navbar";
-
+import ProductCard from "../../components/product-card";
 import { StaticQuery, graphql } from "gatsby";
 
 const MusicPage = (props) => {
     const dispatch = useDispatch();
-    console.log('music props: ', props)
 
     return (
         <main>
@@ -16,10 +15,12 @@ const MusicPage = (props) => {
             <StaticQuery
                 query={
                 graphql`
-                    query AllDataQuery {
+                    query MusicQuery {
                         allContentJson (filter: { title: {eq: "all_data"}}){
                             nodes {
                             content {
+                                name
+                                price
                                 uid
                                 img_category
                                 img_path {
@@ -38,7 +39,7 @@ const MusicPage = (props) => {
                 }
                 render={data => (
                 <>
-                    <ul className="flex flex-row flex-wrap">
+                    <ul className="flex flex-row flex-wrap justify-center items-center">
                         {getMusic(data)}
                     </ul>
                 </>
@@ -46,15 +47,25 @@ const MusicPage = (props) => {
             />
         </main>
     );
+
 }
 
 const getMusic = (data) => {
     const music = []
-    console.log('music: ', data.allContentJson.nodes[0].content.filter(item => item.img_category == "music"))
-    // data.allContentJson.nodes[0].content.forEach(item =>
-    //     // cats.push(<CategoryCard data={item.img_path.childImageSharp.gatsbyImageData} text={item.img_text} category={item.img_category} />)
-    // )
+    console.log('data for music: ', data)
+    data.allContentJson.nodes[0].content.filter(item => item.img_category == "music").forEach(item => 
+        music.push(
+            <ProductCard 
+                data={item.img_path.childImageSharp.gatsbyImageData} 
+                text={item.name} 
+                price={item.price} 
+                uid={item.uid}
+                category={item.img_category}
+            />        
+        )
+    )
     return music;
 }
+
 
 export default MusicPage;

@@ -1,4 +1,9 @@
 import './src/styles/global.css'
 import '@fontsource/open-sans'
-// import wrapWithProvider from './src/store/redux-wrapper'
-// export const wrapRootElement = wrapWithProvider;
+import React from 'react';
+
+export const wrapRootElement = ({element}) => {
+    return (
+        <div>{element}</div>
+    )
+}

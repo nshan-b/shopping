@@ -10,6 +10,12 @@ const cartReducer = (state = [], action) => {
             for (let i = 0; i < arr.length; i++) {
                 if (arr[i].uid == action.uid) {
                     let count = parseInt(arr[i].count)
+                    if (count + parseInt(action.quantity) > 5) {
+                        arr[i].count = 5
+                        // Don't let the user get passed 5
+                        return arr;
+                    }
+
                     arr[i].count = count + parseInt(action.quantity)
                     found = true;
                 }
@@ -20,10 +26,24 @@ const cartReducer = (state = [], action) => {
                     uid: action.uid,
                     count: parseInt(action.quantity),
                     price: parseFloat(action.price),
+                    img_path: action.img_path,
+                    name: action.name,
+                    category: action.category,
                 })
             }
 
             return arr;
+        
+        case 'SET_COUNT':
+            let ar = [...state];
+
+            for (let i = 0; i < ar.length; i++) {
+                if (ar[i].uid == action.uid) {
+                    ar[i].count = action.quantity;
+                }
+            }
+
+            return ar;
 
         case 'REMOVE_ITEM':
             let a = [...state];

@@ -6,7 +6,7 @@ import logo from '../images/++shopping_logo.svg'
 
 import { FaSearch } from "@react-icons/all-files/fa/FaSearch"
 import { FaShoppingCart } from "@react-icons/all-files/fa/FaShoppingCart"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 
 
 
@@ -27,9 +27,25 @@ const Navbar = (props) => {
 
                 {/* Search Bar */}
                 <div className="flex relative text-black justify-center mx-2">
-                    <input className="bg-white h-12 px-5 pr-48 text-md focus:outline-none rounded-tl-lg rounded-bl-lg 
-                        placeholder-gray-400 font-medium placeholder:font-light"
-                    type="search" name="search" placeholder="Search" />
+                    <input 
+                        className="bg-white h-12 px-5 pr-48 text-md focus:outline-none rounded-tl-lg rounded-bl-lg placeholder-gray-400 font-medium placeholder:font-light"
+                        type="search" 
+                        name="search" 
+                        placeholder="Search" 
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter') {
+                                console.log("sup: '", e.target.value)
+                                navigate(
+                                    "/search",
+                                    {
+                                      state: {
+                                          query: e.target.value
+                                      },
+                                    }
+                                  )
+                            }
+                        }}
+                    />
                     <button
                         className="flex items-center justify-center w-12 nav-secondary-bg secondary-hover focus:outline-none rounded-tr-lg rounded-br-lg   "
                     >
@@ -44,8 +60,9 @@ const Navbar = (props) => {
 
                 {/* Remainder */}
                 <div className="flex mx-2 ">
-                    <button
-                        className="relative"
+                    <Link
+                        className="relative cursor-pointer"
+                        to={"/cart"}
                     >
                         <div 
                             className="flex flex-row items-center justify-center px-2.5 py-1 rounded text-white text-lg font-light bg-white"
@@ -53,18 +70,18 @@ const Navbar = (props) => {
                             <FaShoppingCart className="ml-2 text-pink-900" size={14} color={""} />
                             <span className="mx-2 text-pink-900">Cart</span>
                         </div>
-                        {props.counterData > 0 && props.counterData <= 9 ? 
+                        {props.cartData.length > 0 && props.cartData.length <= 9 ? 
                             <span className="absolute bg-red-700 px-2 py-1 text-xs font-bold rounded-full -top-2 -right-4 cursor-default">
-                                {props.counterData && props.counterData > 0 ? (props.counterData > 99 ? "99+" : props.counterData) : null}
+                                {props.cartData.length && props.cartData.length > 0 ? (props.cartData.length > 99 ? "99+" : props.cartData.length) : null}
                             </span>
                         : null}
-                        {props.counterData > 9 ? 
+                        {props.cartData.length > 9 ? 
                             <span className="absolute bg-red-700 px-2 py-1 text-xs font-bold rounded-full -top-2 -right-5 cursor-default">
-                                {props.counterData && props.counterData > 0 ? (props.counterData > 99 ? "99+" : props.counterData) : null}
+                                {props.cartData.length && props.cartData.length > 0 ? (props.cartData.length > 99 ? "99+" : props.cartData.length) : null}
                             </span>
                         : null}
                         
-                    </button>
+                    </Link>
                 </div>
             </div>
         </nav>

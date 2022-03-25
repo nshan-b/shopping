@@ -3,7 +3,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { useDispatch } from "react-redux";
 import { addItem, removeItem, cartReset } from "../actions/cart-actions";
 
-const ProductCard = ({data, text, price, uid}) => {
+const ProductCard = ({data, text, price, uid, category}) => {
     const [quantity, setQuantity] = useState(1);
     const dispatch = useDispatch();
 
@@ -25,6 +25,8 @@ const ProductCard = ({data, text, price, uid}) => {
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
                     </select>
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                         <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -33,11 +35,14 @@ const ProductCard = ({data, text, price, uid}) => {
                 <button 
                     onClick={(e) => {
                         e.stopPropagation();
-                        console.log('adding: ', price, uid, text, quantity);
+                        console.log('adding: ', price, uid, text, quantity, data);
                         dispatch(addItem({
                             uid: uid,
                             quantity: quantity,
-                            price: price
+                            price: price,
+                            img_path: data,
+                            name: text,
+                            category: category,
                         }));
                     }}
                     className="h-10 rounded-sm bg-green-500 hover:bg-green-600 self-end"

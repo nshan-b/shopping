@@ -55,10 +55,16 @@ const ShoesPage = (props) => {
 
 const getShoes = (data) => {
     const shoes = []
-    console.log('data: ', data)
+    console.log('data for shoes: ', data)
     data.allContentJson.nodes[0].content.filter(item => item.img_category == "shoes").forEach(item => 
         shoes.push(
-            <ProductCard data={item.img_path.childImageSharp.gatsbyImageData} text={item.name} price={item.price} uid={item.uid} />
+            <ProductCard 
+                data={item.img_path.childImageSharp.gatsbyImageData} 
+                text={item.name} 
+                price={item.price} 
+                uid={item.uid}
+                category={item.img_category}
+            />        
         )
     )
     return shoes;
