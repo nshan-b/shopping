@@ -52,7 +52,7 @@ const MusicPage = (props) => {
 
 const getMusic = (data) => {
     const music = []
-    console.log('data for music: ', data)
+    // console.log('data for music: ', data)
     data.allContentJson.nodes[0].content.filter(item => item.img_category == "music").forEach(item => 
         music.push(
             <ProductCard 

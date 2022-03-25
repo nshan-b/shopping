@@ -52,7 +52,7 @@ const BooksPage = (props) => {
 
 const getBooks = (data) => {
     const books = []
-    console.log('data for books: ', data)
+    // console.log('data for books: ', data)
     data.allContentJson.nodes[0].content.filter(item => item.img_category == "books").forEach(item => 
         books.push(
             <ProductCard 

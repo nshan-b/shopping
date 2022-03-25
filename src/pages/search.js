@@ -7,7 +7,6 @@ import { StaticQuery, graphql, Link, navigate } from "gatsby";
 
 
 const SearchPage = (props) => {
-    console.log('props for search: ', props)
     return (
         <main>
             <Navbar />
@@ -50,8 +49,8 @@ const SearchPage = (props) => {
 
 const search = (data, q) => {
     const search = []
-    console.log('data for search: ', data)
-    console.log('query for search: ', query)
+    // console.log('data for search: ', data)
+    // console.log('query for search: ', query)
     let query = q.toString()
 
     if (query) {

@@ -52,7 +52,7 @@ const ElectronicsPage = (props) => {
 
 const getElectronics = (data) => {
     const electronics = []
-    console.log('data for electronics: ', data)
+    // console.log('data for electronics: ', data)
     data.allContentJson.nodes[0].content.filter(item => item.img_category == "electronics").forEach(item => 
         electronics.push(
             <ProductCard 

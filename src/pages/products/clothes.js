@@ -52,7 +52,7 @@ const ClothesPage = (props) => {
 
 const getClothes = (data) => {
     const clothes = []
-    console.log('data for clothes: ', data)
+    // console.log('data for clothes: ', data)
     data.allContentJson.nodes[0].content.filter(item => item.img_category == "clothes").forEach(item => 
         clothes.push(
             <ProductCard 

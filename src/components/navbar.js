@@ -12,7 +12,6 @@ import { motion } from "framer-motion";
 
 
 const Navbar = (props) => {
-    console.log('navbar props? ', props)
     const [inputValue, setInputValue] = useState("");
 
     return (
@@ -41,7 +40,6 @@ const Navbar = (props) => {
                         }}
                         onKeyDown={(e) => {
                             if (e.key === 'Enter') {
-                                console.log("sup: '", e.target.value)
                                 navigate(
                                     "/search",
                                     {

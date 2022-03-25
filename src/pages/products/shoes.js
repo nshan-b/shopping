@@ -10,7 +10,6 @@ import { StaticQuery, graphql } from "gatsby";
 
 const ShoesPage = (props) => {
     const dispatch = useDispatch();
-    console.log('shoes props: ', props)
 
     return (
         <main>
@@ -55,7 +54,7 @@ const ShoesPage = (props) => {
 
 const getShoes = (data) => {
     const shoes = []
-    console.log('data for shoes: ', data)
+    // console.log('data for shoes: ', data)
     data.allContentJson.nodes[0].content.filter(item => item.img_category == "shoes").forEach(item => 
         shoes.push(
             <ProductCard 

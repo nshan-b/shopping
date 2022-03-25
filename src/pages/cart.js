@@ -68,7 +68,6 @@ const CartPage = (props) => {
                         <button 
                             className="w-32 p-3 h-auto hover:bg-blue-600 bg-blue-500 text-white text-base rounded-sm"
                             onClick={(e) => {
-                                console.log('heya')
                                 dispatch(cartReset());
                                 toast.success(`Order complete!`, {
                                     position: toast.POSITION.BOTTOM_CENTER,
