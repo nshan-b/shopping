@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { useSelector } from "react-redux";
 import { connect } from "react-redux";
 import '../styles/navbar.css';
@@ -7,12 +7,16 @@ import logo from '../images/++shopping_logo.svg'
 import { FaSearch } from "@react-icons/all-files/fa/FaSearch"
 import { FaShoppingCart } from "@react-icons/all-files/fa/FaShoppingCart"
 import { Link, navigate } from "gatsby"
+import { motion } from "framer-motion";
 
 
 
 const Navbar = (props) => {
     console.log('navbar props? ', props)
+    const [inputValue, setInputValue] = useState("");
+
     return (
+       
         <nav
             className="nav-primary-bg nav-text px-4 py-4"
         >
@@ -31,7 +35,10 @@ const Navbar = (props) => {
                         className="bg-white h-12 px-5 pr-48 text-md focus:outline-none rounded-tl-lg rounded-bl-lg placeholder-gray-400 font-medium placeholder:font-light"
                         type="search" 
                         name="search" 
-                        placeholder="Search" 
+                        placeholder="Search"
+                        onChange={(e) => {
+                            setInputValue(e.target.value ? e.target.value : "")
+                        }}
                         onKeyDown={(e) => {
                             if (e.key === 'Enter') {
                                 console.log("sup: '", e.target.value)
@@ -42,11 +49,22 @@ const Navbar = (props) => {
                                           query: e.target.value
                                       },
                                     }
-                                  )
+                                )
                             }
                         }}
                     />
                     <button
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        navigate(
+                            "/search",
+                            {
+                                state: {
+                                    query: inputValue
+                                },
+                            }
+                        )
+                    }}
                         className="flex items-center justify-center w-12 nav-secondary-bg secondary-hover focus:outline-none rounded-tr-lg rounded-br-lg   "
                     >
                          <FaSearch size={16} color={"white"} className={"w-40"}  />

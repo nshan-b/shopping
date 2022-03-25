@@ -17,6 +17,7 @@
   "dependencies": {
     "@fontsource/open-sans": "^4.5.5",
     "@react-icons/all-files": "^4.1.0",
+    "framer-motion": "^6.2.8",
     "gatsby": "^4.9.1",
     "gatsby-plugin-image": "^2.9.1",
     "gatsby-plugin-react-redux-persist": "^1.1.0",

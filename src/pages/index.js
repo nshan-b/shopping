@@ -5,6 +5,7 @@ import {increment, decrement, reset} from '../actions/counter-actions';
 import { cartReset } from "../actions/cart-actions";
 import { connect, useDispatch } from "react-redux";
 import Navbar from "../components/navbar";
+import { motion } from "framer-motion";
 
 import {StaticQuery, graphql} from "gatsby";
 
@@ -20,6 +21,7 @@ const IndexPage = (props) => {
   // console.log('new counterData: ', useSelector(state => state.counterData))
 
   return (
+    
     <main >
       <title>Home Page</title>
       <Navbar  />
@@ -32,7 +34,18 @@ const IndexPage = (props) => {
       {/* <h1 className="text-3xl font-bold underline text-red-200">
         Hello world!
       </h1> */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{
+          type: "tween",
+          duration: 0.2
+        }}
 
+      >
+
+      
       <StaticQuery
         query={
           graphql`
@@ -65,8 +78,10 @@ const IndexPage = (props) => {
         )}
 
       />
+      </motion.div>
      
     </main>
+    // </motion.div>
   )
 }
 
