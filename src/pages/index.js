@@ -15,23 +15,23 @@ import shoes from '../images/shoes.jpg'
 const IndexPage = (props) => {
   const dispatch = useDispatch()
   
-  console.log('increment: ', increment)
-  const counterData = useSelector(state => state.counterData);
-  console.log('new counterData: ', useSelector(state => state.counterData))
+  // console.log('increment: ', increment)
+  // const counterData = useSelector(state => state.counterData);
+  // console.log('new counterData: ', useSelector(state => state.counterData))
 
   return (
     <main >
       <title>Home Page</title>
       <Navbar  />
       {/* <div>Data: {counterData}</div> */}
-      <button onClick={() => { dispatch(increment(1)) }}>Increment</button>
+      {/* <button onClick={() => { dispatch(increment(1)) }}>Increment</button>
       <button onClick={() => { dispatch(decrement(1)) }}>Decrement</button>
-      <button onClick={() => { dispatch(cartReset()) }}>Reset</button>
+      <button onClick={() => { dispatch(cartReset()) }}>Reset</button> */}
 
 
-      <h1 className="text-3xl font-bold underline text-red-200">
+      {/* <h1 className="text-3xl font-bold underline text-red-200">
         Hello world!
-      </h1>
+      </h1> */}
 
       <StaticQuery
         query={
@@ -65,10 +65,6 @@ const IndexPage = (props) => {
         )}
 
       />
-
-      {/* <CategoryCard data={shoes} text={"pairs to rule them all"}  /> */}
-
-      
      
     </main>
   )
@@ -76,13 +72,10 @@ const IndexPage = (props) => {
 
 const getCategories = (data) => {
   const cats = []
-  // data.allContentJson.nodes[0].content
-  console.log('data', data.allContentJson.nodes[0])
   data.allContentJson.nodes[0].content.forEach(item =>
     cats.push(<CategoryCard data={item.img_path.childImageSharp.gatsbyImageData} text={item.img_text} category={item.img_category} />)
   )
   return cats;
-  // data.allContentJson
 }
 
 export default IndexPage
