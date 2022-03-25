@@ -55,17 +55,19 @@ const search = (data, q) => {
     let query = q.toString()
 
     if (query) {
-        data.allContentJson.nodes[0].content.filter(item => (item.name.toUpperCase().trim().includes(query.toUpperCase().trim()) || item.img_category.includes(query.toUpperCase().trim()))).forEach(item => 
-            search.push(
-                <ProductCard 
-                    data={item.img_path.childImageSharp.gatsbyImageData} 
-                    text={item.name} 
-                    price={item.price} 
-                    uid={item.uid}
-                    category={item.img_category}
-                />
-            )
-        )
+        data.allContentJson.nodes[0].content.filter(item => 
+            (item.name.toUpperCase().trim().includes(query.toUpperCase().trim()) || item.img_category.toUpperCase().trim().includes(query.toUpperCase().trim())))
+                .forEach(item => 
+                    search.push(
+                        <ProductCard 
+                            data={item.img_path.childImageSharp.gatsbyImageData} 
+                            text={item.name} 
+                            price={item.price} 
+                            uid={item.uid}
+                            category={item.img_category}
+                        />
+                    )
+                )
     }
     else {
         data.allContentJson.nodes[0].content.forEach(item => 
